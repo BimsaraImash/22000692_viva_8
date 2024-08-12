@@ -6,10 +6,10 @@ object CaesarCiper {
     for (i <- 0 until text.length) {
       val value = text(i).toInt
       val newChar = if (value >= 65 && value <= 90) { // Uppercase
-                        ((value - 65 + normalizedShift) % 26 + 65).toChar
+                        ((value - 65 + normalizedShift + 26) % 26 + 65).toChar
                     }
                     else if (value >= 97 && value <= 122) { // Lowercase
-                        ((value - 97 + normalizedShift) % 26 + 97).toChar
+                        ((value - 97 + normalizedShift + 26) % 26 + 97).toChar
                     } else { // Non-alphabetic characters
                         text(i)
                     }
@@ -24,9 +24,9 @@ object CaesarCiper {
     for (i <- 0 until text.length) {
       val value = text(i).toInt;
       val newChar = if (value >= 65 && value <= 90) { // Uppercase
-        ((value - 65 - normalizedShift ) % 26 + 65).toChar
+        ((value - 65 - normalizedShift + 26) % 26 + 65).toChar
       } else if (value >= 97 && value <= 122) { // Lowercase
-        ((value - 97 - normalizedShift ) % 26 + 97).toChar
+        ((value - 97 - normalizedShift + 26) % 26 + 97).toChar
       } else { // Non-alphabetic characters
         text(i)
       }
@@ -36,7 +36,7 @@ object CaesarCiper {
     }
 
     def main(arg: Array[String]) : Unit = {
-        val shift = 3;
+        val shift = 99;
         val text = "Bimsara";
         println(s"The text is $text");
         // String after encryption
